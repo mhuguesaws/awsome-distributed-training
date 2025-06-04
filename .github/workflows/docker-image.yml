@@ -22,6 +22,6 @@ jobs:
     - name: Build the Docker image
       run: docker build . --file micro-benchmarks/nccl-tests/nccl-tests.Dockerfile --tag gh-nccl-tests
     - name: convert to enroot
-      run: enroot import -i $APPS_PATH/nccl-tests.sqsh dockerd://gh-nccl-tests
+      run: enroot import -o $APPS_PATH/nccl-tests.sqsh dockerd://gh-nccl-tests
     - name: Run slurm container
       run: sbatch micro-benchmarks/nccl-tests/slurm/nccl-tests-container.sbatch
