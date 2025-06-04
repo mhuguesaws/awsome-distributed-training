@@ -1,4 +1,4 @@
-name: Docker Image CI
+name: NCCL Tests CI
 
 on:
   workflow_dispatch:
