@@ -24,4 +24,6 @@ jobs:
     - name: convert to enroot
       run: enroot import -o $APPS_PATH/nccl-tests.sqsh dockerd://gh-nccl-tests
     - name: Run slurm container
-      run: sbatch -W micro-benchmarks/nccl-tests/slurm/nccl-tests-container.sbatch
+      run: |
+        JOB_ID=$(sbatch -W micro-benchmarks/nccl-tests/slurm/nccl-tests-container.sbatch --parsable)
+        cat nccl-all_reduce_perf_${JOB_ID}.out
